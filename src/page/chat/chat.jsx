@@ -75,7 +75,7 @@ const Chat = ({ users, setUnread }) => {
 
     if (!users || !users.receiver) return null;
     return (
-        <div className='flex flex-col w-screen max-w-lg relative pt-2'>
+        <div className='flex flex-col w-screen max-w-lg relative'>
             <div className='flex items-center py-0 pb-3 p-3 border-b-1 fixed border-[#262a35] w-full max-w-lg z-10'>
                 <div className='flex w-full  rounded-xl gap-3 items-center'>
                     <div className="w-10 h-10 rounded-full bg-[#262a35] flex justify-center items-center">
