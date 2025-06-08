@@ -123,10 +123,7 @@ const Home = () => {
 
   socket.on('userLeft', handleUserLeft);
 
-  return () => {
-    socket.off('userLeft', handleUserLeft);
-  };
-}, [opponent]); // 🔄 Include `opponent` if it's reactive
+}, []); // 🔄 Include `opponent` if it's reactive
 
 
   const [gameCreated, setGameCreated] = useState(false)
@@ -175,10 +172,8 @@ const Home = () => {
 
   socket.on('userReady', handleUserReady);
 
-  return () => {
-    socket.off('userReady', handleUserReady);
-  };
-}, [navigate, opponent]); // 👀 include deps you use inside
+ 
+}, []); // 👀 include deps you use inside
 
 
   return (
@@ -204,6 +199,7 @@ const Home = () => {
             localStorage.removeItem('userId')
             localStorage.removeItem('username')
             localStorage.removeItem('currentGameId') && localStorage.removeItem('currentGameId')
+            toast('You Logged Out!')
           }}>Logout</button>
         </div>
       </div>
@@ -407,10 +403,10 @@ const Home = () => {
           },
         }}
       >
-        <div className="p-1.5 px-3 font-[poppins-bold] text-sm max-w-lg w-full text-white bg-[#1a1b20] flex flex-col gap-4 items-center m-auto">
-          <div className='bg-[#262a35] w-12 h-1.5 rounded-full'></div>
+        <div className="p-1.5 px-3 max-w-md w-full text-white bg-[#1a1b20] flex flex-col gap-4 items-center m-auto">
+              <div className='bg-[#262a35] w-12 h-1.5 rounded-full'></div>
           {/* <div className='w-full flex gap-2 items-center'> */}
-          <p className="text-md mt-md font-[poppins-bold] ">Search Game</p>
+          <p className="text-md mt-md font-[poppins-bold] ">Join Game</p>
           <div className="max-w-md w-full gap-2 h-12 bg-[#262a35] rounded-lg flex items-center text-sm min mb-4">
             <input type="search" placeholder="Enter Game Code" className="rounded-lg flex-grow h-full bg-transparent outline-none px-3 text-white border-1 border-transparent focus:border-[#3b5af2]"
               name='gameCode'

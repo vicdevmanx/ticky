@@ -1,4 +1,8 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
+import { socket } from "../socket";
+import { toast } from "sonner";
+
+
 
 
 
@@ -22,6 +26,28 @@ const [gameOn, setGameOn] = useState(false)
         sender: localStorage.getItem('username'),
         receiver: ''
     })
+    const [chat, setChat] = useState([]); // [{player: 'X', msg: 'content'}, {player: 'O', msg: 'content'}]
+        
+        useEffect(() => {
+            const handleNewMessage = ({ message, fromUser }) => {
+                setChat((prev) => [...prev, message]);
+                console.log('message:', message);
+    
+                if (localStorage.getItem('userId') !== message.from) {
+                    toast(`${fromUser.username}: ${message.content}`);
+                }
+    
+                setUnread((prev) => Array.from(new Set([...prev, message.from])));
+    
+            };
+    
+            socket.on('newMessage', handleNewMessage);
+    
+            return () => {
+                socket.off('newMessage', handleNewMessage); // 👈 cleanup here
+            };
+        }, []);
+    
 
     return(
         <GlobalContext.Provider 
@@ -35,7 +61,8 @@ const [gameOn, setGameOn] = useState(false)
             pendingGames, setPendingGames,
             opponent, setOpponent,
             gameOn, setGameOn,
-            conversation, setConversation
+            conversation, setConversation,
+            chat, setChat
         }}>
         {children}</GlobalContext.Provider>
     )

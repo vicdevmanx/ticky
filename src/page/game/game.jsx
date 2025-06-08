@@ -194,16 +194,16 @@ const Game = () => {
                     backgroundColor: '#1a1b20'
                 }
             }}>
-                <div className='bg-[#1a1b20] p-4 rounded-lg flex flex-col gap-4'>
+                <div className='bg-[#1a1b20] p-4 rounded-lg flex flex-col gap-4 min-w-64'>
                     <div className='font-[poppins-bold] text-lg text-center text-white'> {winner ? `${winner == player ? localStorage.getItem('username') : opponent.username}(${winner}) wins!` : clickedEnd ? 'What do you wanna do?' : `It's a draw!`} </div>
-                    <div className='flex gap-4'>
-                        <button className='bg-blue-500 flex-grow p-1 px-3 rounded-lg text-md font-[poppins-bold] text-white' onClick={handleClose}> Continue {countDown && `(${countDown})`}</button>
-                        <button className='bg-red-400 flex-grow p-1 px-3 rounded-lg text-md font-[poppins-bold] text-white cursor-pointer' onClick={async () => {
+                    <div className='flex gap-2'>  <button className='bg-red-400 flex-grow p-1.5 px-3 rounded-lg text-md font-[poppins-bold] text-white cursor-pointer' onClick={async () => {
                             setPendingGames([])
                             // socket.emit('leaveGame', { gameId, player })
                             // socket.emit('deleteGame', ({ gameId }))
                             window.location.reload();
-                        }}> End Game</button>
+                        }}> End</button>
+                        <button className='bg-blue-500 flex-grow p-1.5 px-3 rounded-lg text-md font-[poppins-bold] text-white' onClick={handleClose}> Continue {countDown && `(${countDown})`}</button>
+                      
                     </div>
                 </div>
             </Dialog>

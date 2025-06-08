@@ -34,7 +34,7 @@ const Login = () => {
             const response = await fetch(`${url}/api/v1/auth/login`, {
                 method: 'POST',
                 headers: { 'content-Type': 'application/json' },
-                body: JSON.stringify({ username: formData.username, password: formData.password })
+                body: JSON.stringify({ username: formData.username.trim(), password: formData.password })
             });
             const result = await response.json();
             if (result.ok) {

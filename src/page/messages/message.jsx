@@ -78,7 +78,7 @@ const Message = () => {
 
     return (
         <div className='w-full max-w-lg m-auto flex flex-col h-full min-h-screen bg-[#1a1b20]'>
-            <div className='p-4 pl-2 gap-2 flex items-center justify-between sticky top-0 bg-[#1a1b20] border-b border-[#262a35] relative'>
+            <div className='p-4 gap-2 flex items-center justify-between sticky top-0 bg-[#1a1b20] border-b border-[#262a35] relative'>
                 <p className='text-xl font-[poppins-bold]'>Messages</p>
 
                 {
@@ -88,13 +88,13 @@ const Message = () => {
                             onBlur={() => setIsFocused(false)}
                             type='search'
                             placeholder='Search users...'
-                            className='absolute text-xs bg-[#262a35] rounded-xl p-3 pl-4 outline-0 InputAni' />
+                            className='absolute text-xs bg-[#262a35] rounded-xl p-3.5 outline-0 InputAni left-2' />
                     )
                 }
 
                 {
                     !isFocused && (
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5.5" onClick={handleInputRef}>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5.5 stroke-2" onClick={handleInputRef}>
                             <path fillRule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clipRule="evenodd" />
                         </svg>
                     )
@@ -179,7 +179,7 @@ const Message = () => {
                 open={openChat}
                 onClose={() => {
                     setOpenChat(false);
-
+                    
                 }}
                 onOpen={() => setOpenChat(true)}
                 transitionDuration={200}
