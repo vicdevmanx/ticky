@@ -1,0 +1,13 @@
+@import 'tailwindcss';
+
+.chats::-webkit-scrollbar {
+    background: transparent;
+    width:6px;
+    height: 0;
+}
+
+.chats::-webkit-scrollbar-thumb {
+    background: #262a35;
+    border-radius: 10px;
+}
+

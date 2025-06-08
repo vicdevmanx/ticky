@@ -1,0 +1,30 @@
+@import 'tailwindcss';
+
+@font-face {
+    font-family: poppins;
+    src: url('./assets/Poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: poppins-medium;
+    src: url('./assets/Poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+    font-family: poppins-bold;
+    src: url('./assets\Poppins\Poppins-Bold.ttf');
+}
+
+
+
+.customScroll::-webkit-scrollbar {
+    width:6px;
+    background: transparent;
+    height:0;
+}
+
+.customScroll::-webkit-scrollbar-thumb {
+    background:rgb(48, 53, 67);
+    border-radius: 50px;
+    width:6px;
+}

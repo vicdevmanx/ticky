@@ -1,0 +1,18 @@
+
+
+.InputAni {
+    animation-name: searchInput;
+    animation-duration: 0.1s;
+    width: 10%;
+    animation-fill-mode: forwards;
+    text-align: left;
+}
+
+@keyframes searchInput {
+    from {
+        width: 10%;
+    }
+    to {
+        width: 95%;
+    }
+}
